@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_23_025236) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_24_003223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "cameras", force: :cascade do |t|
     t.boolean "active", default: true, null: false
+    t.integer "agent_dvr_oid"
     t.integer "capture_interval_seconds", default: 5, null: false
     t.datetime "created_at", null: false
     t.text "description"

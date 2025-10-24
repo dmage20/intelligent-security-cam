@@ -10,6 +10,7 @@ class Camera < ApplicationRecord
   validates :name, presence: true
   validates :rtsp_url, presence: true, format: { with: /\Artsp:\/\//i, message: "must be a valid RTSP URL" }
   validates :capture_interval_seconds, numericality: { greater_than: 0, less_than_or_equal_to: 3600 }
+  validates :agent_dvr_oid, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   # Scopes
   scope :active, -> { where(active: true) }
